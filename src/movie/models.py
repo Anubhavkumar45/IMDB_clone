@@ -1,10 +1,10 @@
 from django.db import models
 
 CATEGORY_CHOICES = (
-    ('A','ACTION'),
-    ('C','COMEDY'),
-    ('D','DRAMA'),
-    ('R','ROMANCE'),
+    ('A' ,'ACTION'),
+    ('C' ,'COMEDY'),
+    ('D' ,'DRAMA'),
+    ('R' ,'ROMANCE'),
 )
 
 LANGUAGE_CHOICES = (
