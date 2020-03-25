@@ -2,7 +2,14 @@
 {% block body %}
 		<main class="content">
 			<section class="centered">
-				<h3>Most Watched Movies</h3>
+				{% if movie_category %}
+					<h3>{{movie_category|title}} Movies</h3>
+				{% endif %}
+
+				{% if movie_language %}
+					<h3>{{movie_language|title}} Language</h3>
+				{% endif %}
+
 				<div class="movies">
 					{% for movie in object_list %}
 						<div class="mov">
@@ -11,8 +18,9 @@
 							<h2 class="movietitle">{{movie.title}}</h2>
 						</a>
 					</div>
+					{% empty %}
+						<h1>"No Movies in this movie category"</h1>	
 					{% endfor %}
-					
 					
 				</div>
 				{% if is_paginated %}
