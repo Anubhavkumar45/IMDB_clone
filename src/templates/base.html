@@ -71,36 +71,22 @@
 			<div class="swiper-container">
 
 				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<img src="images/slider/poster2.jpg">
+					
+						<div class="swiper-slide">
+						{% if slider_movie.banner %}
+							<img src="{{slider_movie.banner.url}}">
+						{% endif %}
+						
 						<div class="caption">
 							<div class="captioninside">
-								<h3>Movie Title</h3>
-								<p>Lorem ipsum dolor siamet</p>
-								<a href="single.html" class="playbutton">Play</a>
+								<h3>{{slider_movie.title}}</h3>
+								<p>{{slider_movie.description}}</p>
+								<a href="{% url 'movies:movie_detail' slider_movie.slug %}" class="playbutton">Play</a>
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide">
-						<img src="images/slider/poster1.jpg">
-						<div class="caption">
-							<div class="captioninside">
-								<h3>Movie Title 2</h3>
-								<p>Lorem ipsum dolor siamet</p>
-								<a href="single.html" class="playbutton">Play</a>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<img src="images/slider/poster2.jpg">
-						<div class="caption">
-							<div class="captioninside">
-								<h3>Movie Title 3</h3>
-								<p>Lorem ipsum dolor siamet</p>
-								<a href="single.html" class="playbutton">Play</a>
-							</div>
-						</div>
-					</div>
+					
+					
 				</div>
 				<!-- Add Pagination -->
 				<div class="swiper-pagination"></div>
@@ -134,7 +120,7 @@
 		</footer>
 
 		<!-- Swiper JS -->
-		<script src="js/swiper.min.js"></script>
+		<script src="{% static 'js/swiper.min.js' %}"></script>
 
 		<!-- Initialize Swiper -->
 		<script>
